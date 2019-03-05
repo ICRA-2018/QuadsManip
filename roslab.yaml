@@ -1,0 +1,19 @@
+name: quadsmanip
+
+base:
+  ubuntu: 16.04
+  opengl: runtime
+
+apt:
+  - python-setuptools
+  - python-dev
+  - python-tk
+
+pip:
+  - numpy==1.11.3
+  - matplotlib==2.0.0
+
+custom:
+  - pip install cvxpy==0.4.11
+  - cd $HOME/quadsmanip/quadsmanip && python setup.py build_ext --inplace
+

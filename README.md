@@ -18,10 +18,15 @@ Code author: <a href="http://web.stanford.edu/~zjwang/" target="_blank">Zijian W
 ## Quickstart and Demo
 
 ```
-./make.sh
 python demo_main.py
+```
+```
 python demo_single_quad.py
+```
+```
 python demo_traj_opt.py
+```
+```
 python demo_traj_opt_time.py
 ```
 
