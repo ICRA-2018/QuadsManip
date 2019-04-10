@@ -8,6 +8,7 @@ apt:
   - python-setuptools
   - python-dev
   - python-tk
+  - libblas-dev liblapack-dev
 
 pip:
   - numpy==1.11.3
