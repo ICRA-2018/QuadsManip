@@ -1,4 +1,6 @@
 # QuadsManip
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/icra2018/quadsmanip.svg)](https://hub.docker.com/r/icra2018/quadsmanip)
+<a href="#how-to-run-with-docker"><img src="https://img.shields.io/badge/Docker-instructions-brightgreen.svg"></a>
 
 **Cooperative Manipulation using Multiple Quadrotors without Communication**
 
@@ -61,3 +63,40 @@ If you find our work useful in your research, please consider citing:
 Our code is released under MIT License (see LICENSE file for details).
 
 For any technical issues, please contact Zijian Wang <zjwang_AT_stanford_DOT_edu>, or open an issue in Github.
+
+# How to Run with Docker
+## Linux
+Tested on Ubuntu 16.04.6 with Docker 18.06.1-ce.
+
+1. Open a terminal and run the command:
+```
+docker run --rm -p 8888:8888 -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix  icra2018/quadsmanip:latest
+```
+2. Run a web browser and open the link: [http://localhost:8888/lab/tree/README.ipynb](http://localhost:8888/lab/tree/README.ipynb)
+
+## macOS
+#### Prerequisites
+* [XQuartz](https://www.xquartz.org/):
+  - Activate the option `Allow connections from network clients` in XQuartz settings
+  - Quit & restart XQuartz (to activate the setting)
+  - Open a terminal and run the command:<br/> `xhost + localhost`
+
+Tested on macOS Mojave 10.14.3 with XQuartz 2.7.11 and Docker Desktop 2.0.0.3 (engine: 18.09.2).
+1. Open a terminal and run the command:
+```
+docker run --rm -p 8888:8888 -e DISPLAY=host.docker.internal:0 -v /tmp/.X11-unix:/tmp/.X11-unix  icra2018/quadsmanip:latest
+```
+2. Run a web browser and open the link: [http://localhost:8888/lab/tree/README.ipynb](http://localhost:8888/lab/tree/README.ipynb)
+
+## Windows
+### Prerequisites
+* [VcXsrv](https://sourceforge.net/projects/vcxsrv/) or another X Windows Server
+  - Run `Xlaunch` from the Start menu
+  - Select `Multiple windows`, `Start no client`, and set `Disable access control`
+
+Tested on Windows 10 Education wih VcXsrv 1.20.1.4 and Docker Desktop 2.0.0.3 (engine: 18.09.2).
+1. Open a Windows PowerShell and run the command:
+```
+docker run --rm -p 8888:8888 -e DISPLAY=host.docker.internal:0  icra2018/quadsmanip:latest
+```
+2. Run a web browser and open the link: [http://localhost:8888/lab/tree/README.ipynb](http://localhost:8888/lab/tree/README.ipynb)
